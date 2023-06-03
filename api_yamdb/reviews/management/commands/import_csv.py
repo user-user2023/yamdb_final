@@ -3,7 +3,6 @@ import logging
 import sqlite3
 
 from api_yamdb.settings import BASE_DIR, STATIC_ROOT
-
 from django.core.management.base import BaseCommand, CommandError
 
 
