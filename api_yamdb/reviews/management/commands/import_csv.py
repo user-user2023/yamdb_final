@@ -2,11 +2,11 @@ import csv
 import logging
 import sqlite3
 
-from api_yamdb.settings import BASE_DIR, STATIC_ROOT
+from api_yamdb.settings import BASE_DIR #,STATIC_ROOT
 from django.core.management.base import BaseCommand, CommandError
 
 
-CSV_FILES_DIR = f"{STATIC_ROOT[0]}/data"
+#CSV_FILES_DIR = f"{STATIC_ROOT[0]}/data"
 FILES_DICT = {
     "titles": "reviews_title",
     "category": "reviews_category",
