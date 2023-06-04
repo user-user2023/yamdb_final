@@ -2,11 +2,11 @@ import csv
 import logging
 import sqlite3
 
-from api_yamdb.settings import BASE_DIR, STATIC_ROOT
 from django.core.management.base import BaseCommand, CommandError
 
+from api_yamdb.settings import BASE_DIR, STATICFILES_DIRS
 
-CSV_FILES_DIR = f"{STATIC_ROOT[0]}/data"
+CSV_FILES_DIR = f"{STATICFILES_DIRS[0]}/data"
 FILES_DICT = {
     "titles": "reviews_title",
     "category": "reviews_category",
@@ -37,8 +37,8 @@ def read_db(prefix):
         logging.info(f'Successfully read db table {db_table}')
         db_column_names = tuple(i[0] for i in cur.description)
         print(f"Данные в таблице - {db_table}:")
-    print(db_column_names)
-    return cur
+        print(db_column_names)
+        return cur
 
 
 def write_to_db(filename, prefix):
