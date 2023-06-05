@@ -55,6 +55,8 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.PASSPHRASE }}
         script: |
+          sudo systemctl stop nginx
+          sudo systemctl stop gunicorn
           sudo docker-compose stop
           sudo docker-compose rm web
           touch .env
