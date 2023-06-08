@@ -4,9 +4,9 @@ import sqlite3
 
 from django.core.management.base import BaseCommand, CommandError
 
-from api_yamdb.settings import BASE_DIR, STATICFILES_DIRS
+from api_yamdb.settings import BASE_DIR, STATIC_ROOT
 
-CSV_FILES_DIR = f"{STATICFILES_DIRS[0]}/data"
+CSV_FILES_DIR = f"{STATIC_ROOT[0]}/data"
 FILES_DICT = {
     "titles": "reviews_title",
     "category": "reviews_category",

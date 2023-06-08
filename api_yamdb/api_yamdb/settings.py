@@ -13,8 +13,9 @@ SECRET_KEY = os.getenv('MY_KEY', default=1)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+#False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['51.250.31.157', '127.0.0.1', 'localhost']
 
 # Application definition
 
@@ -115,7 +116,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = (os.path.join(BASE_DIR, 'static'),)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
