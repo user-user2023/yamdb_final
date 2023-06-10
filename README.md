@@ -18,13 +18,13 @@
 Клонировать репозиторий:
 
 ```
-git clone https://github.com/user-user2023/yamdb_final
+git clone https://github.com/user-user2023/infra_sp2
 ```
 Запустить Docker
 
 Из папки infra запустить docker-compose.yaml:
 ```
-cd infra
+cd infra_sp2/infra
 docker-compose up
 ```
 
