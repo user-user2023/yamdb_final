@@ -1,10 +1,3 @@
-from api.permissions import (IsAdminOrModeratirOrAuthor, IsAdminOrReadOnly,
-                             IsAdminOrSuperuser)
-from api.serializers import (AuthorSerializer, CategorySerializer,
-                             CommentSerializer, GenreSerializer,
-                             GetTitleSerializer, ReviewSerializer,
-                             SignUpSerializer, TitleSerializer,
-                             TokenSerializer, UserSerializer)
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
 from django.db.models import Avg
@@ -12,10 +5,21 @@ from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters, mixins, status, viewsets
 from rest_framework.decorators import action
-from rest_framework.permissions import (AllowAny, IsAuthenticated,
-                                        IsAuthenticatedOrReadOnly)
+from rest_framework.permissions import (
+    AllowAny, IsAuthenticated, IsAuthenticatedOrReadOnly
+)
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
+
+from api.permissions import (
+    IsAdminOrModeratirOrAuthor, IsAdminOrReadOnly, IsAdminOrSuperuser
+)
+from api.serializers import (
+    AuthorSerializer, CategorySerializer, CommentSerializer,
+    GenreSerializer, GetTitleSerializer, ReviewSerializer,
+    SignUpSerializer, TitleSerializer, TokenSerializer,
+    UserSerializer
+)
 from reviews.models import Category, Genre, Review, Title
 from users.models import User
 
@@ -100,12 +104,12 @@ class UserViewSet(viewsets.ModelViewSet):
             serializer = AuthorSerializer(
                 user, data=request.data, partial=True
             )
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response(
-            serializer.errors, status=status.HTTP_400_BAD_REQUEST
-        )
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_200_OK)
+            return Response(
+                serializer.errors, status=status.HTTP_400_BAD_REQUEST
+            )
 
 
 class ReviewViewSet(viewsets.ModelViewSet):
