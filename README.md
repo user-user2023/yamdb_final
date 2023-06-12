@@ -1,3 +1,7 @@
+Развернутый проект доступен по ссылке:
+http://51.250.31.157/redoc/
+http://51.250.31.157/admin/
+
 # api_yamdb
 [![Workflow Status](https://github.com/user-user2023/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)](https://github.com/user-user2023/yamdb_final/actions/workflows/yamdb_workflow.yml)
 
@@ -18,13 +22,13 @@
 Клонировать репозиторий:
 
 ```
-git clone https://github.com/user-user2023/infra_sp2
+git clone https://github.com/user-user2023/yamdb_final
 ```
 Запустить Docker
 
 Из папки infra запустить docker-compose.yaml:
 ```
-cd infra_sp2/infra
+cd infra
 docker-compose up
 ```
 
@@ -365,21 +369,6 @@ Response
   "bio": "string",
   "role": "user"
 }
-```
-#### Скрипт import_csv
-Умеет читать данные из базы, записывать данные в базу, удалять данные из таблицы.
-Скрипт проверяет наличие файла в `api_yamdb/static/data/`.
-Прочитать данные из таблицы на основе файла
-```
-python manage.py import_csv --read category.csv
-```
-Записать данные в таблицу, на основе файла
-```
-python manage.py import_csv --write category.csv`
-```
-Удалить данные из таблицы на основе файла 
-```
-python manage.py import_csv --delete category.csv
 ```
 
 ### Разработчики:
